@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include(`./partials/head.ejs`);%>
+
+    <title>Pokemon Show Page</title>
+
+
+<body>
+<div class="container center-align">
+  <h1>Pokemon show page</h1>
+  <div class="divider"></div>
+  <div class="section">
+    <h2><%= OnePokemon.name %></h2>
+    <img src="<%= OnePokemon.img %>" />
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <ul class="type">
+      <h3>Type</h3>
+      <% for (let i = 0; i < OnePokemon.type.length; i++) { %>
+
+      <li><%= OnePokemon.type[i] %></li>
+
+      <% } %>
+    </ul>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <ul class="stats">
+      <h3>Stats</h3>
+      <% if (OnePokemon.stats) { %>
+        <% Object.entries(OnePokemon.stats).forEach(([key, value]) => { %>
+          <li><%= `${key}: ${value}` %></li>
+        <% }) %>
+      <% } else { %>
+        <li>No stats found.</li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <a href="/pokemon/<%= index %>/edit"><button class="waves-effect waves-light btn">EDIT</button></a>
+    <form action="/pokemon/<%= index %>?_method=DELETE" method="post">
+      <input type="submit" value="DELETE" class="waves-effect waves-light btn"/>
+    </form>
+    <br />
+    <div class="divider"></div>
+    <a class="waves-effect waves-light btn" href="/pokemon">Back to pokemon page</a>
+  </div>
+</div>
