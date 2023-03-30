@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include(`./partials/head.ejs`);%>
+
+    <title>Pokemon Edit Page</title>
+
+
+<body>
+<div class="container">
+  <h1>Edit <%= OnePokemon.name %> page</h1>
+  <div class="divider"></div>
+  <div class="section">
+    <form action="/pokemon/<%= index %>?_method=PUT" method="post">
+      Name: <input type="text" name="name" value="<%= OnePokemon.name %>" /><br/>
+      Type: <input type="text" name="type" value="<%= OnePokemon.type %>" /><br/>
+      <% for (const key in OnePokemon.stats) { %>
+        <label for="<%=key%>"><%=key%>:</label>
+        <input type="text" id="<%=key%>" name="stats.<%=key%>" value="<%= OnePokemon.stats[key] %>" /><br/>
+      <% } %>
+      Image link: <input type="url" name="image" value="<%= OnePokemon.img %>" /><br/>
+      <input type="submit" value="Update <%= OnePokemon.name %>" class="waves-effect waves-light btn"/>
+    </form>
+  </div>
+</div>
