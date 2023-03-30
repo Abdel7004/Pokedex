@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include(`./partials/head.ejs`);%>
+  <title>New Pokemon</title>
+
+  <body>
+    <div class="container">
+      <h1>New Pokemon page</h1>
+      <div class="divider"></div>
+      <div class="section">
+        <form action="/pokemon" method="post">
+          Name: <input type="text" name="name" /><br />
+          Type: <input type="text" name="type" /><br />
+          Stats: <input type="text" name="stats" /><br />
+          Image URL: <input type="url" name="image" required /><br />
+          <input
+            type="submit"
+            value="Create Pokemon"
+            class="waves-effect waves-light btn"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

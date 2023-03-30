@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include(`./partials/head.ejs`);%>
+
+    <title>Pokemon Index Page</title>
+
+
+<body>
+
+<div class="container center-align">
+  <h1>Pokemon Index Page</h1>
+
+  <form action="/pokemon/new" method="GET">
+    <button type="submit" class="waves-effect waves-light btn">
+      Create a New Pokemon
+    </button>
+  </form>
+  
+  <ul>
+    <% pokemon.forEach(function(poke, index) { %>
+
+    <li>
+      <a href="/pokemon/<%= index %>"><%= poke.name %></a>
+      <a href="/pokemon/<%= index %>"><img src="<%= poke.img %>" /></a>
+    </li>
+
+    <% }); %>
+  </ul>
+</div>

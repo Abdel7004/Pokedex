@@ -1,0 +1,29 @@
+footer {
+  text-align: center;
+  margin: 10px;
+  color: white;
+  background-color: red;
+  padding: 10px;
+}
+
+header div {
+  display: flex;
+  justify-content: space-around;
+  background-color: cadetblue;
+  color: white;
+  padding: 20px;
+  font-size: x-large;
+  font-weight: 900;
+}
+
+header div a {
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+  padding: 10px;
+}
+
+header div a:hover {
+  background-color: white;
+  color: cadetblue;
+}
